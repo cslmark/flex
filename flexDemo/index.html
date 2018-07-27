@@ -11,6 +11,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        align-content: flex-end;
     }
     .flexItem{
         width: 90px;
@@ -19,17 +20,42 @@
         margin-left: 20px;
         margin-bottom: 20px;
         text-align: center;
-        line-height: 90px;
+        line-height: 50px;
+    }
+    #flexParents{
+        width: 900px;
+        height: 900px;
+        background: aqua;
     }
 </style>
 <body>
-<div class="flexBox">
-    <div class="flexItem" style="height:100px">123</div>
-    <div class="flexItem" style="height:200px">123</div>
-    <div class="flexItem" style="height:80px">123</div>
-    <div class="flexItem" style="height:400px">123</div>
-    <div class="flexItem" style="height:150px">123</div>
-    <div class="flexItem" style="height:200px">123</div>
+<div id="flexParents">
+    <div class="flexBox">
+        <div class="flexItem" style="height:50px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:40px">123</div>
+        <div class="flexItem" style="height:200px">123</div>
+        <div class="flexItem" style="height:75px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:40px">123</div>
+        <div class="flexItem" style="height:50px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:40px">123</div>
+        <div class="flexItem" style="height:200px">123</div>
+        <div class="flexItem" style="height:75px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:40px">123</div>
+        <div class="flexItem" style="height:50px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:40px">123</div>
+        <div class="flexItem" style="height:200px">123</div>
+        <div class="flexItem" style="height:75px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:100px">123</div>
+        <div class="flexItem" style="height:40px">123</div>
+    </div>
 </div>
 </body>
 </html>
