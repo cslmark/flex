@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .flexBox{
+        display: flex;
+        width: 100%;
+        height: 200px;
+        background: purple;
+        justify-content: center;
+    }
+    .itemDiv{
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        background: blue;
+        margin-right: 20px;
+        text-align: center;
+        color: white;
+        line-height: 200px;
+    }
+    .flexSection2{
+        padding: 20px 50px 20px 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        background: antiquewhite;
+        height: 300px;
+    }
+    .goods-image{
+        width: 200px;
+        height: 200px;
+        flex: 0 0 200px;
+        margin-right: 50px;
+        background: #55a532;
+    }
+    .goods-content{
+        flex: 1;
+        background: lightseagreen;
+        min-width: 300px;
+    }
+    .goods-margin{
+        margin-bottom: 10px;
+    }
+    .cateSpan{
+        padding: 5px 10px;
+        background: yellow;
+        border: solid 1px #dddddd;
+        border-radius: 10px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        white-space: nowrap;  /*强制span不换行*/
+        display: inline-block;  /*将span当做块级元素对待*/
+    }
+    .gridTable{
+        margin: 10px 20px;
+        background: lightseagreen;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        min-width: 810px;
+    }
+    .goodItem{
+        background: green;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 24%;
+        height: 200px;
+        min-width: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: white;
+        border: solid 1px yellowgreen;
+        max-width: 25%;
+    }
+</style>
+<body>
+<div id="app">
+    <h1>1.以下是需要 三 等分的界面</h1>
+    <div class="flexBox">
+        <div v-for="item in divList" :key=item.id class="itemDiv">{{item.name}}</div>
+    </div>
+    <h1>2. 例子2常见的左对齐方式</h1>
+    <div class="flexSection2">
+        <!--左边图片部分-->
+        <div class="goods-image">
+        </div>
+        <!--右边部分-->
+        <div class="goods-content">
+            <div class="content-name goods-margin">
+                {{ goodDetail.name }}
+            </div>
+            <div class="content-price goods-margin">
+                商品价格: {{ goodDetail.price }}元
+            </div>
+            <div class="content-catelist goods-margin">
+                <span class="cateSpan" v-for="cateItem in goodDetail.catelist" :key="cateItem.id">{{ cateItem }}</span>
+            </div>
+        </div>
+    </div>
+    <h1>3. flex布局的类似网格布局</h1>
+    <div class="gridTable">
+        <div class="goodItem" v-for="goodItem in categories" :key="goodItem.id">{{ goodItem['sourceValue'] }}</div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '',
+            divList:[
+                {
+                    name: 'first'
+
+                },
+                {
+                    name: 'second'
+                },
+                {
+                    name: 'third'
+                }
+            ],
+            goodDetail:{
+                name: 'MACBook Pro 全新正品笔记本电脑',
+                price: 10200,
+                catelist:[
+                    '2017款',
+                    '13.3寸',
+                    '8GB',
+                    '灰色',
+                    'i5-2.3G',
+                    '128G'
+                ]
+            },
+            categories: [{
+                "sourceValue": "1_电脑办公",
+                "categoryName": "电脑办公",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3088\/18\/3188812072\/1772\/8273d4a1\/57ed1627N4981b655.png",
+                "cateId": 29
+            }, {
+                "sourceValue": "2_生活电器",
+                "categoryName": "生活电器",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3193\/114\/3195557995\/2533\/bf08a15d\/57ed1617N7e66ff9a.png",
+                "cateId": 19
+            }, {
+                "sourceValue": "3_手机通讯",
+                "categoryName": "手机通讯",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3202\/352\/3167794467\/1602\/96d9c8ba\/57ed1634N6e6ace1b.png",
+                "cateId": 30
+            }, {
+                "sourceValue": "4_大家电",
+                "categoryName": "大家电",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3073\/251\/3159846630\/3497\/8789ec2\/57ed1620Ne9366496.png",
+                "cateId": 25
+            }, {
+                "sourceValue": "5_智能数码",
+                "categoryName": "智能数码",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3208\/3\/3183034098\/2906\/51b19a9d\/57ed163cN56b360ca.png",
+                "cateId": 31
+            }, {
+                "sourceValue": "6_饮料酒水",
+                "categoryName": "饮料酒水",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3214\/254\/3202741372\/2362\/bbc1a5f3\/57ed16c7N7df41811.png",
+                "cateId": 45
+            }, {
+                "sourceValue": "7_家居家装",
+                "categoryName": "家居家装",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3232\/101\/3194646669\/2220\/706b77ac\/57ed1671N4c611449.png",
+                "cateId": 37
+            }, {
+                "sourceValue": "8_母婴童装",
+                "categoryName": "母婴童装",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3187\/210\/3151709368\/2226\/7331827d\/57ed16b5N690b7b59.png",
+                "cateId": 43
+            }, {
+                "sourceValue": "9_食品生鲜",
+                "categoryName": "食品生鲜",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3058\/188\/3223879335\/2637\/2f6f19db\/57ed16bfNbac5a136.png",
+                "cateId": 44
+            }, {
+                "sourceValue": "10_个护家清",
+                "categoryName": "个护家清",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3052\/297\/3220833564\/3212\/f2ce735f\/57ed1646N9e206101.png",
+                "cateId": 32
+            }, {
+                "sourceValue": "11_美妆",
+                "categoryName": "美妆",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3277\/257\/3186180818\/2107\/1c605df5\/57ed16d3Nd0773108.png",
+                "cateId": 46
+            }, {
+                "sourceValue": "12_运动户外",
+                "categoryName": "运动户外",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3187\/93\/3187823430\/1880\/f118dde6\/57ed1668N5a435e68.png",
+                "cateId": 36
+            }, {
+                "sourceValue": "13_潮流鞋靴",
+                "categoryName": "潮流鞋靴",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3214\/34\/3182697512\/2251\/9b74623a\/57ed165aNf051d858.png",
+                "cateId": 34
+            }, {
+                "sourceValue": "14_流行服装",
+                "categoryName": "流行服装",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3208\/339\/3188673242\/2974\/2cc51ac8\/57ed164eNedef8452.png",
+                "cateId": 33
+            }, {
+                "sourceValue": "15_内衣",
+                "categoryName": "内衣",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3124\/332\/3125304761\/2402\/37a2edad\/57ed1660N7a2c2e9d.png",
+                "cateId": 35
+            }, {
+                "sourceValue": "16_钟表珠宝",
+                "categoryName": "钟表珠宝",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3286\/269\/3336106738\/3875\/cd7fef28\/57ed1689Nb9855bfb.png",
+                "cateId": 38
+            }, {
+                "sourceValue": "17_居家百货",
+                "categoryName": "居家百货",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3223\/186\/3147576427\/2825\/c784c1db\/57ed16a9N09d62e47.png",
+                "cateId": 42
+            }, {
+                "sourceValue": "18_医药保健",
+                "categoryName": "医药保健",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3085\/5\/3235072676\/2967\/9dfebaea\/57ed1698N22c7985f.png",
+                "cateId": 40
+            }, {
+                "sourceValue": "19_箱包服配",
+                "categoryName": "箱包服配",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3175\/32\/3228977631\/3317\/2ed7f77d\/57ed169eN89480628.png",
+                "cateId": 41
+            }, {
+                "sourceValue": "20_汽车用品",
+                "categoryName": "汽车用品",
+                "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3190\/116\/3261435576\/3982\/bb526fbe\/57ed168fN3689298c.png",
+                "cateId": 39
+            },
+                {
+                    "sourceValue": "20_汽车用品",
+                    "categoryName": "汽车用品",
+                    "categoryImg": "\/\/m.360buyimg.com\/mobilecms\/s80x80_jfs\/t3190\/116\/3261435576\/3982\/bb526fbe\/57ed168fN3689298c.png",
+                    "cateId": 39
+                }
+            ]
+        },
+        create() {
+            console.log('进入了=====create方法')
+        }
+    })
+</script>
+</html>
