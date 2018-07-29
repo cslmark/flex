@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #flexBox{
+        display: flex;
+        background: antiquewhite;
+    }
+    .flexItem{
+        width: 100px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: white;
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin-right: 20px;
+        flex-basis: 200px;
+    }
+    .flexSpec{
+        width: 100px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: white;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-right: 20px;
+        flex-basis: 200px;
+    }
+</style>
+<body>
+<div id="flexBox">
+    <div class="flexItem" style="background: red">test</div>
+    <div class="flexItem" style="background: yellow">test</div>
+    <div class="flexItem" style="background: green">test</div>
+    <div class="flexSpec" style="background: lightseagreen">test</div>
+    <div class="flexItem" style="background: blue">test</div>
+    <div class="flexItem" style="background: purple">test</div>
+    <div class="flexItem" style="background: orange">test</div>
+    <div class="flexItem" style="background: green">test</div>
+    <div class="flexItem" style="background: blue">test</div>
+    <div class="flexItem" style="background: black">test</div>
+</div>
+</body>
+</html>
